@@ -1,5 +1,6 @@
 // Step 1
-import interact from 'interactjs'
+//import interact from 'interactjs'
+const interact = require('interactjs')
 const slider = interact('.slider')    // target elements with the "slider" class
 
 slider
