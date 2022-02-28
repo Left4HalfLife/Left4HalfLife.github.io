@@ -1,8 +1,6 @@
 // Step 1
 //import interact from 'interactjs'
-const interact = require('interactjs')
 const slider = interact('.slider')    // target elements with the "slider" class
-
 slider
   // Step 2
   .draggable({                        // make the element fire drag events
