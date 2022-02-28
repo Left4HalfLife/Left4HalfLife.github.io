@@ -7,7 +7,7 @@
   width: 100%;
   height: 1em;
   margin: 1.5em auto;
-  background-color: #29e;
+  background-color: #222222;
   border-radius: 0.5em;
   box-sizing: border-box;
 
@@ -27,16 +27,16 @@
   width: 2em;
   height: 2em;
   margin-left: -1em;
-  border: solid 0.25em #fff;
+  border: solid 0.25em #ffffff;
   border-radius: 1em;
-  background-color: inherit;
+  background-color: #df0031;
 
   box-sizing: border-box;
 }
 
 /* display the value */
 .slider:after {
-  content: attr(data-value);
+  /*content: attr(data-value);*/
   position: absolute;
   top: -1.5em;
   width: 2em;
