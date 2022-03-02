@@ -1159,6 +1159,9 @@ img {
     overflow: hidden;
     display: block;
     position: relative;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #222222;
 }
 
 .portfolio-item .portfolio_img img {
