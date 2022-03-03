@@ -617,6 +617,14 @@ img {
     margin-top: 60px;
 }
 
+.client_logos p {
+    color: #ffffff;
+}
+
+.client_logos span {
+    background: #ffffff;
+}
+
 .client_logos ul {
     padding: 0;
     margin: 0;
