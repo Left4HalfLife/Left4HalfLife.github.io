@@ -1,3 +1,81 @@
+.de_toolbox {
+  margin: 0;
+  height: 100%; /* 100% Full-height */
+  width: 60px; 
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: 0; 
+  left: 0;
+  background-color: #ffffff; 
+  overflow-x: hidden; 
+  transition: 0.25s; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.de_toolbox:hover > .de_button {
+	display: block;
+}
+
+.de_toolbox:hover{
+  margin: 0;
+  height: 100%; /* 100% Full-height */
+  width: 75px; 
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: 0; 
+  left: 0;
+  background-color: #000000; 
+  overflow-x: hidden;  
+  transition: ease-out 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* The navigation menu links */
+.de_toolbox a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 50px;
+  color: #ffffff;
+  display: none;
+  transition: 0.3s;
+  text-align: center;
+}
+
+/* When you mouse over the navigation links, change their color */
+.de_toolbox a:hover {
+  color: #6ef3f5;
+}
+
+/* Position and style the close button (top right corner) */
+.de_toolbox .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .de_toolbox {padding-top: 15px;}
+  .de_toolbox a {font-size: 18px;}
+}
+
+#de_body{
+	margin-left:100px;
+	margin-top: 30px;
+	margin-right:100px;
+	height:100%;
+}
+
+#de_workspace{
+	height:80vh;
+}
+
 .sliders {
   padding: 1.5em
 }
@@ -43,4 +121,24 @@
   line-height:1em;
   margin-left: -1em;
   text-align: center;
+}
+
+.draggable {
+  width: 20%;
+  height: 20%;
+  text-align: center;
+  font-size: 1.8vw;
+  margin: 0;
+  padding: 0;
+  background-color: #222222;
+  color: white;
+  border-radius: 10px;
+  touch-action: none;
+  user-select: none;
+}
+
+.draggable:hover {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #222222;
 }
