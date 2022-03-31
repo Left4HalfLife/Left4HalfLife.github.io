@@ -55,9 +55,12 @@ function deleteBox(){
   if (!boxes.length){
 	console.log("no boxes!");
   }
+  if (active > -1){
 	boxes[active].remove();
 	boxes[active] = null;
 	console.log(boxes);
+	active = -1;
+  }
 }
 
 DivObject = function(){
@@ -91,8 +94,14 @@ DivObject = function(){
   textbox.style.display = "inline-block";
   textbox.style.verticalAlign = "middle";
   textbox.spellcheck = false;
-  boxes.push(this.div);
-  active+=1;
+
+  if (!boxes.length){
+	active = 0;
+  }
+  else{
+	active=boxes.length; 
+  }
+  boxes.push(this.div);  
   this.div.id = "box"+active;
   const thisBoxID = this.div.id;
   this.div.addEventListener("click",function() {setActiveBox(thisBoxID)});
