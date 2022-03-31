@@ -73,7 +73,9 @@
 }
 
 #de_workspace{
+	display:flex;
 	height:80vh;
+	justify-content: center;
 }
 
 .sliders {
@@ -141,4 +143,21 @@
   border-style: solid;
   border-width: 2px;
   border-color: #222222;
+}
+
+
+.dropzone{
+	
+}
+
+#de_now{
+	width:50%;
+	height:100%; 
+	background-color: #f9f9f9;
+}
+
+#de_later{
+	width:50%;
+	height:100%; 	
+	background-color: #f0f0f0;
 }

@@ -2,6 +2,16 @@ const position = { x: 0, y: 0 };
 var boxes = [];
 var active = -1;
 
+
+
+interact('.dropzone').dropzone({
+  accept: '.draggable',
+  overlap: 0.60,
+  ondrop: function (event) {
+	 //console.log(event.target + " append child " + event.relatedTarget);
+  }
+});
+
 interact('.draggable').draggable({	
   listeners: {
     start (event) {
@@ -28,9 +38,18 @@ interact('.draggable').draggable({
   modifiers: [
     interact.modifiers.restrictRect({
       restriction: 'parent'
-    })
+    }),
+//	interact.modifiers.snap({
+//      targets: [ { x: window.innerWidth/2, y: window.innerHeight * 0.4} ],
+//      relativePoints: [
+//        { x: 0 , y: 0  },
+//        { x: 0 , y: 1  },   
+//        { x: 1 , y: 1  },   
+//		{ x: 1 , y: 0  }    
+//      ]
+//    })
   ]
-})
+});
 
 function openNav() {
   document.getElementById("side").style.width = "50px";
@@ -44,7 +63,7 @@ function setActiveBox(boxID) {
 	boxNumberOnly = boxID.substring(3);
 	//console.log(boxNumberOnly);
 	active = parseInt(boxNumberOnly);
-	console.log("ACTIVE BOX #", active);
+	//console.log("ACTIVE BOX #", active);
 }
 
 function checkBoxes(){
@@ -64,7 +83,7 @@ function deleteBox(){
 }
 
 DivObject = function(){
-	console.log("SUMMONING JUTSU");
+	//console.log("SUMMONING JUTSU");
 	document.getElementById("add_box").onclick = null;
 	setTimeout(function(){
 		document.getElementById("add_box").onclick = function(){new DivObject()};
