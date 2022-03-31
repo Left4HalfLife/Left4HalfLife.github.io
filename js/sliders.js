@@ -1,10 +1,12 @@
-const position = { x: 0, y: 0 }
+const position = { x: 0, y: 0 };
+var boxes = [];
+var active = -1;
 
 interact('.draggable').draggable({	
   listeners: {
     start (event) {
       //console.log(event.type, event.target)
-	  console.log(position.x);
+	  //console.log(position.x);
 	  position.x = getTranslate(event.target.style.transform)[0];
 	  position.y = getTranslate(event.target.style.transform)[1];
     },
@@ -38,7 +40,33 @@ function closeNav() {
   document.getElementById("side").style.width = "0px";
 }
 
+function setActiveBox(boxID) {
+	boxNumberOnly = boxID.substring(3);
+	//console.log(boxNumberOnly);
+	active = parseInt(boxNumberOnly);
+	console.log("ACTIVE BOX #", active);
+}
+
+function checkBoxes(){
+	console.log(boxes);
+}
+
+function deleteBox(){
+  if (!boxes.length){
+	console.log("no boxes!");
+  }
+	boxes[active].remove();
+	boxes[active] = null;
+	console.log(boxes);
+}
+
 DivObject = function(){
+	console.log("SUMMONING JUTSU");
+	document.getElementById("add_box").onclick = null;
+	setTimeout(function(){
+		document.getElementById("add_box").onclick = function(){new DivObject()};
+	},200);
+	
   this.div = document.createElement("div");
   document.getElementById("de_workspace").appendChild(this.div);
   this.div.className="draggable";
@@ -63,7 +91,11 @@ DivObject = function(){
   textbox.style.display = "inline-block";
   textbox.style.verticalAlign = "middle";
   textbox.spellcheck = false;
-  
+  boxes.push(this.div);
+  active+=1;
+  this.div.id = "box"+active;
+  const thisBoxID = this.div.id;
+  this.div.addEventListener("click",function() {setActiveBox(thisBoxID)});
 }
 
 function getTranslate(transformString){
