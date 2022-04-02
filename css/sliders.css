@@ -1,9 +1,9 @@
 .de_toolbox {
   margin: 0;
-  height: 100%; /* 100% Full-height */
+  height: 100%; 
   width: 60px; 
   position: fixed;
-  z-index: 1; /* Stay on top */
+  z-index: 1; 
   top: 0; 
   left: 0;
   background-color: #ffffff; 
@@ -19,22 +19,10 @@
 }
 
 .de_toolbox:hover{
-  margin: 0;
-  height: 100%; /* 100% Full-height */
   width: 75px; 
-  position: fixed;
-  z-index: 1; /* Stay on top */
-  top: 0; 
-  left: 0;
   background-color: #000000; 
-  overflow-x: hidden;  
-  transition: ease-out 0.5s;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-/* The navigation menu links */
 .de_toolbox a {
   padding: 8px 8px 8px 8px;
   text-decoration: none;
@@ -45,21 +33,39 @@
   text-align: center;
 }
 
-/* When you mouse over the navigation links, change their color */
 .de_toolbox a:hover {
   color: #6ef3f5;
 }
 
-/* Position and style the close button (top right corner) */
-.de_toolbox .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+
+.ColorPicker {
+	margin: none;
+	margin-left: 67px;
+	opacity: 0;
+	transition: 0.25s;
+	position:absolute;
+	justify-content: center;
+	align-items: center;
+	background-color: #000000;
+	padding: 20px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+.de_toolbox:hover > #de_colour:hover{
+	display: flex;
+	flex-direction: column;
+}
+
+.de_toolbox:hover > #de_colour:hover > .ColorPicker{
+	opacity: 1;
+	background-color: #000000;
+	margin-left: 67px;
+	display: block;
+	position: fixed;
+}
+
+
+
+
 @media screen and (max-height: 450px) {
   .de_toolbox {padding-top: 15px;}
   .de_toolbox a {font-size: 18px;}

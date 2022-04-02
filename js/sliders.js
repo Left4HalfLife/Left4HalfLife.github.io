@@ -1,8 +1,7 @@
 const position = { x: 0, y: 0 };
 var boxes = [];
 var active = -1;
-
-
+const rgba2hex = (rgba) => `#${rgba.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+\.{0,1}\d*))?\)$/).slice(1).map((n, i) => (i === 3 ? Math.round(parseFloat(n) * 255) : parseFloat(n)).toString(16).padStart(2, '0').replace('NaN', '')).join('')}` //https://stackoverflow.com/a/3627747
 
 interact('.dropzone').dropzone({
   accept: '.draggable',
@@ -51,23 +50,42 @@ interact('.draggable').draggable({
   ]
 });
 
-function openNav() {
-  document.getElementById("side").style.width = "50px";
-}
+//function openNav() {
+//  document.getElementById("side").style.width = "50px";
+//}
 
-function closeNav() {
-  document.getElementById("side").style.width = "0px";
-}
+//function closeNav() {
+//  document.getElementById("side").style.width = "0px";
+//}
+
+var colorPicker = new iro.ColorPicker('#picker', {
+	width: 250,
+	borderWidth: 1,
+	borderColor: "#ffffff",
+});
+
+colorPicker.on('color:change', function(color) {
+  // log the current color as a HEX string
+  //console.log(color.hexString);
+  document.getElementById("de_colour").style.color = color.hexString;
+  if (active > -1){
+	  if (boxes[active] != null){  
+		boxes[active].style.backgroundColor = color.hexString;
+	  }
+  }
+});
 
 function setActiveBox(boxID) {
 	boxNumberOnly = boxID.substring(3);
 	//console.log(boxNumberOnly);
 	active = parseInt(boxNumberOnly);
 	//console.log("ACTIVE BOX #", active);
+	colorPicker.color.hexString = (rgba2hex((boxes[active].style.backgroundColor)));	
 }
 
 function checkBoxes(){
 	console.log(boxes);
+	console.log("current active box: " + "#" + active)
 }
 
 function deleteBox(){
@@ -94,7 +112,13 @@ DivObject = function(){
   this.div.className="draggable";
   this.div.style.position = "absolute";
   this.div.style.textAlign = "center";
-  this.div.style.backgroundColor = "#" + ((1<<24)*Math.random() | 0).toString(16); //https://stackoverflow.com/a/5365036
+  var randomColour = "#" + Math.floor(Math.random()*16777215).toString(16); //https://css-tricks.com/snippets/javascript/random-hex-color/
+  console.log(randomColour);
+  while (randomColour.length < 7 ){
+	  randomColour += "0"; //rng occasionally generates 5 digits 
+  }
+  //console.log(randomColour);
+  this.div.style.backgroundColor = randomColour;
   this.div.style.transform = "translate(0px, 0px)"
 
   var textbox = document.createElement("textarea");
@@ -124,6 +148,7 @@ DivObject = function(){
   this.div.id = "box"+active;
   const thisBoxID = this.div.id;
   this.div.addEventListener("click",function() {setActiveBox(thisBoxID)});
+  colorPicker.color.hexString = randomColour;
 }
 
 function getTranslate(transformString){

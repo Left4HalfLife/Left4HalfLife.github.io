@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, maximum-scale=1">
 	<title>Depresso Espresso ☕</title>
 	<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
 	<link rel="icon" href="favicon.png" type="image/png">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/style.css" rel="stylesheet" type="text/css"> 
@@ -21,10 +22,13 @@
 	</head>
 <body>
 	<div id="side" class="de_toolbox">
+		<a class="de_button" id="de_colour" href="javascript:void(0)" onclick="">●<div class="ColorPicker" id="picker"></div></a>
 		<a class="de_button" id="add_box" href="javascript:void(0)" onclick="new DivObject()">+</a>
 		<a class="de_button" id="remove_box" href="javascript:void(0)" onclick="deleteBox()">–</a>
-		<a class="de_button" id="check_boxes" href="javascript:void(0)" onclick="checkBoxes()">?</a>
+		<a class="de_button" id="check_boxes" href="javascript:void(0)" onclick="checkBoxes()">?</a>		
+		
 	</div>
+	
 	<div id="de_body">
 		<header>
 		<h2>DEPRESSO ESPRESSO</h2>
