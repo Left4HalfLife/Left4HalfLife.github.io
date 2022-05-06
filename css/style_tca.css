@@ -1,0 +1,152 @@
+/*
+Author URI: http://webthemez.com/
+Note: 
+Licence under Creative Commons Attribution 3.0 
+Do not remove the back-link in this web template 
+-------------------------------------------------------*/
+
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Raleway:800,700,400);
+@import url(http://fonts.googleapis.com/css?family=Signika:400,600);
+
+/* Reset
+---------------------------------*/
+ul {
+    list-style: none;
+}
+
+.figure {
+    margin: 0px;
+}
+
+img {
+    max-width: 100%;
+}
+
+a, a:hover, a:active {
+    outline: 0px !important;
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.clearfix:before,
+.clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+
+/* Styles
+TCA colours
+Dark blue: #15254b
+Orange: #f04f23
+Light blue: #48c0ad
+---------------------------------*/
+h2{
+	text-align: center;
+	padding: 30px;
+	margin: 0px;
+	color: #48c0ad;
+}
+
+body{
+	background-color: #ffffff;
+	height:100vh;
+	width:100vw;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+
+header{
+	background-color: #15254b;
+	padding-bottom:10px;
+	height:10vh;
+}
+
+nav{
+	background-color: #15254b;
+	width:20vw;
+	height: 90vh;
+	display:block;
+	position:absolute;
+}
+
+#content{
+	background-color:#222222;
+	margin-left:20vw;
+	height: 90vh;
+	display:flex;
+	justify-content:center;
+}
+
+iframe{
+	margin-top:20px;
+}
+
+
+.nav_item{
+	display:flex;
+	font-size:30px;
+	padding: 20px;
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px 0px;
+	background-color: #15254b;
+}
+
+.nav_item_active{
+	display:flex;
+	font-size:30px;
+	padding: 20px;
+	color: #ffffff;
+	border-style: solid;
+	border-width: 1px 0px;
+	background-color: #f04f23;
+}
+
+#logo{
+	width:10vh;
+	float:left;
+}
+
+.nav_item:hover{
+	font-size:32px;
+	padding: 30px;
+	color: #ffffff;
+	background-color: #48c0ad;
+	cursor:pointer;
+	transition: 0.3s;
+}
+
+.nav_item_active:hover{
+	font-size:32px;
+	padding: 30px;
+	color: #ffffff;
+	background-color: #f04f23;
+	cursor:pointer;
+	transition: 0.3s;
+}
+
+.nav_sub_item{
+	font-size:25px;
+	padding: 20px;
+	color: #ffffff;
+	display:none;
+}
