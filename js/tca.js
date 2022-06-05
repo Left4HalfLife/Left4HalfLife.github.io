@@ -10,10 +10,10 @@ class Page{
 }
 
 allPages.push(new Page("Introduction","intro","https://www.youtube.com/embed/_RIoiqgEkM0"));
-allPages.push(new Page("SPEAKS","speaks","https://www.youtube.com/embed/HBKSUO5OvlE"));
-allPages.push(new Page("Drama","drama","https://www.youtube.com/embed/_RIoiqgEkM0"));
-allPages.push(new Page("Debating","debating","https://www.youtube.com/embed/_RIoiqgEkM0"));
-allPages.push(new Page("Creative Writing","creative_writing","https://www.youtube.com/embed/_RIoiqgEkM0"));
+allPages.push(new Page("SPEAKS","speaks","https://www.youtube.com/embed/bprtfIxcA1c"));
+allPages.push(new Page("Drama","drama","https://www.youtube.com/embed/X-dvmMKfADg"));
+allPages.push(new Page("Debating","debating","https://www.youtube.com/embed/EZQn-xIebRI"));
+allPages.push(new Page("Creative Writing","creative_writing","https://www.youtube.com/embed/Akwm2UZJ34o"));
 
 function navPage(page){
 
