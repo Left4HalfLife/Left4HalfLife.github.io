@@ -24,7 +24,10 @@ Headers: Century Gothic
 Main: Arial?
 
 ##Website template info:
-Author URL :
+Author URL : http://html5up.net
 Note: 
-Licence: 
+Licence: Creative Commons
 
+##Project Timelines
+Project started 6:40pm 1 June 2024
+First clock-out at 11:05pm
