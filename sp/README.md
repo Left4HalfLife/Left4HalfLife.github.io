@@ -19,7 +19,7 @@ Sun Closed
 \#f26c21
 
 ##Fonts:
-Titles: 
+Titles: Incised 901 Compact
 Headers: Century Gothic
 Main: Arial?
 
