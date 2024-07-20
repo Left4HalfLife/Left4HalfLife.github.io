@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MRTdle</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+                                <img src="mockups/logo_long.png" height="100">
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero text-light text-center">
+                <div class="container-sm">
+                    <div class="hero-inner">
+                        <h1>Guess the station:</h1>
+                        <br>
+                        <input id="guess" autofocus="autofocus" onkeydown="guess(this)">
+                        <script>
+                        function guess(t){
+                            if(event.key === 'Enter'){
+                                document.getElementById("guess").value='';
+                            }
+                        }
+                        </script>
+                        <div id="game">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="clients section">
+                <div class="container">
+                    <div class="clients-inner section-inner">
+                        <div class="container-sm">
+                            <ul class="list-reset mb-0">
+                                <li>
+                                    <h4>Number 1</h4>                                   
+                                </li>
+                                <li>
+                                    <h4>Number 2</h4>    
+                                </li>
+                                <li>
+                                    <h4>Number 3</h4>    
+                                </li>
+                                <li>
+                                    <h4>Number 4</h4>    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="footer-copyright">Developed by <a href="https://github.com/left4halflife" target="_blank">&nbsp Marximus</a> &nbsp| &copy; <a href="https://onepagelove.com/evelyn" target="_blank">Template</a>&nbsp  by &nbsp<a href="https://cruip.com" target="_blank">Cruip</a> </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+  
+</body>
+</html>
