@@ -1,0 +1,9 @@
+CREATE TABLE mrt_stations (
+    station_number INT PRIMARY KEY,
+    station_name VARCHAR(100),
+    opening_year INT,
+    first_opened DATE,
+    previous_station INT,
+    next_station INT,
+    cdc_district VARCHAR(50)
+);

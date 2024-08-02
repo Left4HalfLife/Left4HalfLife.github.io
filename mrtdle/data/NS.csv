@@ -1,0 +1,28 @@
+Station Number,Station Name,First Opened,Previous Station,Next Station
+NS1,Jurong East,1988,-,Bukit Batok
+NS2,Bukit Batok,1988,Jurong East,Bukit Gombak
+NS3,Bukit Gombak,1988,Bukit Batok,Choa Chu Kang
+NS4,Choa Chu Kang,1990,Bukit Gombak,Yew Tee
+NS5,Yew Tee,1996,Choa Chu Kang,Kranji
+NS7,Kranji,1996,Yew Tee,Marsiling
+NS8,Marsiling,1996,Kranji,Woodlands
+NS9,Woodlands,1996,Marsiling,Admiralty
+NS10,Admiralty,1996,Woodlands,Sembawang
+NS11,Sembawang,1996,Admiralty,Canberra
+NS12,Canberra,2019,Sembawang,Yishun
+NS13,Yishun,1988,Canberra,Khatib
+NS14,Khatib,1988,Yishun,Yio Chu Kang
+NS15,Yio Chu Kang,1987,Khatib,Ang Mo Kio
+NS16,Ang Mo Kio,1987,Yio Chu Kang,Bishan
+NS17,Bishan,1987,Ang Mo Kio,Braddell
+NS18,Braddell,1987,Bishan,Toa Payoh
+NS19,Toa Payoh,1987,Braddell,Novena
+NS20,Novena,1987,Toa Payoh,Newton
+NS21,Newton,1987,Novena,Orchard
+NS22,Orchard,1987,Newton,Somerset
+NS23,Somerset,1987,Orchard,Dhoby Ghaut
+NS24,Dhoby Ghaut,1987,Somerset,City Hall
+NS25,City Hall,1987,Dhoby Ghaut,Raffles Place
+NS26,Raffles Place,1987,City Hall,Marina Bay
+NS27,Marina Bay,1989,Raffles Place,Marina South Pier
+NS28,Marina South Pier,2014,Marina Bay,-
