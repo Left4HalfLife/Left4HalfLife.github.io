@@ -31,9 +31,9 @@
 			speed: 300
 		});
 
-	// Nav.
+	//Nav.
 
-		// // Toggle.
+		// Toggle.
 		// 	$(
 		// 		'<div id="navToggle">' +
 		// 			'<a href="#navPanel" class="toggle"></a>' +
