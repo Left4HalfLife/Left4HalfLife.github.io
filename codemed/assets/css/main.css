@@ -2921,3 +2921,41 @@ input, select, textarea {
 		font-size:x-large;
 		color:#444;
 	}
+
+	.toggle_segments{
+		display:flex;
+	}
+
+	.toggle_section{
+		flex:1;
+		z-index: 10;
+		text-align: center;
+		transform: translateY(-3px);
+	}
+	
+	.toggle_section p{
+		color:#fff;
+		font-weight:600;
+		user-select: none;
+		transition: color 0.2s ease;
+	}
+
+	.toggle_section.active p{
+		color:#000;
+		font-weight:600;
+		user-select: none;
+		transition: color 0.2s ease;
+	}
+
+	@media screen and (max-width: 736px) {
+		.toggle_section{
+			transform: translateY(0px);
+		}
+		.tab-button{
+			transform: translateY(-5px);
+			border-radius:10px !important;
+		}
+		.button-container{
+			line-height:10px;			
+		}
+	}
