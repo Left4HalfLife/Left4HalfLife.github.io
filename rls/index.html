@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Lock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        canvas {
+            border: 2px solid #333;
+            touch-action: none;
+        }
+        #puzzle {
+            display: none;
+            text-align: center;
+            width: 90%;
+            max-width: 400px; /* Cap the size for desktop */
+        }
+        table {
+            margin: 10px auto;
+            border-collapse: collapse;
+            width: 100%; /* Make the table take full width */
+        }
+        table, th, td {
+            border: 1px solid #333;
+        }
+        td {
+            padding: 20px; /* Increase padding for better visibility */
+            text-align: center;
+            font-size: 1.2rem; /* Larger font size for mobile */
+            background-color: white; /* Default background color */
+            transition: background-color 0.3s ease; /* Smooth transition for color change */
+            cursor: pointer; /* Indicate that the cell is clickable */
+        }
+        td.active {
+            background-color: yellow; /* Highlighted background color */
+        }
+        #backButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #backButton:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B</h1>
+    <div id="rowLabels" style="display: flex; align-items: center;">
+        <div style="display: flex; flex-direction: column; justify-content: space-evenly; margin-right: 10px; height: 300px;">
+            <span style="font-size: 1.2rem;">a2</span>
+            <span style="font-size: 1.2rem;">c3</span>
+            <span style="font-size: 1.2rem;">b1</span>
+        </div>
+        <canvas id="patternCanvas" width="300" height="300"></canvas>
+    </div>
+    <div id="puzzle">
+        <h2>Double 2</h2>
+        <table>
+            <tr>
+                <td>Salad</td>
+                <td>Pilates</td>
+            </tr>
+            <tr>
+                <td>Excel</td>
+                <td>Library</td>
+            </tr>
+            <tr>
+                <td>Plushies</td>
+                <td>Step</td>
+            </tr>
+            <tr>
+                <td>Sleep</td>
+                <td>Daily</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const canvas = document.getElementById('patternCanvas');
+        const ctx = canvas.getContext('2d');
+        const puzzleDiv = document.getElementById('puzzle');
+        const title = document.getElementById('title');
+        const rowLabels = document.getElementById('rowLabels');
+        const correctPattern = "14569";
+        let pattern = [];
+        let isDrawing = false;
+        const dots = [
+            { x: 50, y: 50 }, { x: 150, y: 50 }, { x: 250, y: 50 },
+            { x: 50, y: 150 }, { x: 150, y: 150 }, { x: 250, y: 150 },
+            { x: 50, y: 250 }, { x: 150, y: 250 }, { x: 250, y: 250 }
+        ];
+
+        function drawGrid() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            dots.forEach((dot, index) => {
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, 20, 0, Math.PI * 2);
+                ctx.fillStyle = pattern.includes(index + 1) ? '#333' : '#fff';
+                ctx.fill();
+                ctx.strokeStyle = '#333';
+                ctx.stroke();
+            });
+        }
+
+        function getDotIndex(x, y) {
+            return dots.findIndex(dot => Math.hypot(dot.x - x, dot.y - y) < 20);
+        }
+
+        function handleStart(x, y) {
+            const dotIndex = getDotIndex(x, y);
+            if (dotIndex !== -1 && !pattern.includes(dotIndex + 1)) {
+                pattern.push(dotIndex + 1);
+            }
+            drawGrid();
+        }
+
+        function handleMove(x, y) {
+            const dotIndex = getDotIndex(x, y);
+            if (dotIndex !== -1 && !pattern.includes(dotIndex + 1)) {
+                pattern.push(dotIndex + 1);
+            }
+            drawGrid();
+
+            // Draw the entire path
+            if (pattern.length > 1) {
+                ctx.beginPath();
+                ctx.moveTo(dots[pattern[0] - 1].x, dots[pattern[0] - 1].y);
+                for (let i = 1; i < pattern.length; i++) {
+                    ctx.lineTo(dots[pattern[i] - 1].x, dots[pattern[i] - 1].y);
+                }
+                ctx.strokeStyle = '#333';
+                ctx.stroke();
+            }
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            handleStart(x, y);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            handleMove(x, y);
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDrawing = false;
+            if (pattern.join('') === correctPattern) {
+                canvas.style.display = 'none'; // Hide the dot grid
+                puzzleDiv.style.display = 'block'; // Show the puzzle table
+                title.style.display = 'none'; // Hide the title
+                rowLabels.style.display = 'none'; // Hide the row labels
+            }
+            pattern = [];
+            drawGrid();
+        });
+
+        // Add touch event listeners for mobile
+        canvas.addEventListener('touchstart', (e) => {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            handleStart(x, y);
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (!isDrawing) return;
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            handleMove(x, y);
+        });
+
+        canvas.addEventListener('touchend', () => {
+            isDrawing = false;
+            if (pattern.join('') === correctPattern) {
+                canvas.style.display = 'none'; // Hide the dot grid
+                puzzleDiv.style.display = 'block'; // Show the puzzle table
+                title.style.display = 'none'; // Hide the title
+                rowLabels.style.display = 'none'; // Hide the row labels
+            }
+            pattern = [];
+            drawGrid();
+        });
+
+        // Add functionality for the "Back" button
+        const backButton = document.createElement('button');
+        backButton.id = 'backButton';
+        backButton.textContent = 'Back';
+        backButton.addEventListener('click', () => {
+            puzzleDiv.style.display = 'none'; // Hide the puzzle table
+            canvas.style.display = 'block'; // Show the dot grid
+            title.style.display = 'block'; // Show the title
+            rowLabels.style.display = 'flex'; // Show the row labels
+        });
+        puzzleDiv.appendChild(backButton); // Add the button to the puzzle div
+
+        // Add event listeners to toggle background color
+        document.querySelectorAll('#puzzle table td').forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('active'); // Toggle the 'active' class
+            });
+        });
+
+        drawGrid();
+    </script>
+</body>
+</html>
