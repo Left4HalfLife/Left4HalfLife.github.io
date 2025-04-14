@@ -29,6 +29,7 @@
             margin: 10px auto;
             border-collapse: collapse;
             width: 100%; /* Make the table take full width */
+            table-layout: fixed; /* Ensure all cells have the same width */
         }
         table, th, td {
             border: 1px solid #333;
@@ -40,6 +41,7 @@
             background-color: white; /* Default background color */
             transition: background-color 0.3s ease; /* Smooth transition for color change */
             cursor: pointer; /* Indicate that the cell is clickable */
+            word-wrap: break-word; /* Ensure long words wrap within the cell */
         }
         td.active {
             background-color: yellow; /* Highlighted background color */
@@ -70,15 +72,19 @@
         <canvas id="patternCanvas" width="300" height="300"></canvas>
     </div>
     <div id="puzzle">
-        <h2>Double 4</h2>
+        <h2>Double 5</h2>
         <table>
             <tr>
                 <td>Salad</td>
                 <td>Pilates</td>
-            </tr>
+            </tr>            
             <tr>
                 <td>Excel</td>
-                <td>Library</td>
+                <td>Potato</td>
+            </tr>
+            <tr>
+                <td>Engineering</td>
+                <td>Aquatic</td>
             </tr>
             <tr>
                 <td>Plushies</td>
