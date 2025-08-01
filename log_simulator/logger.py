@@ -5,28 +5,37 @@ import os
 LOG_FILE = "simulated_logs.txt"
 
 LOG_LEVELS = {
-    '1': 'debug',
-    '2': 'warning',
-    '3': 'error',
-    '4': 'fatal'
+    '1': 'DEBUG',
+    '2': 'WARNING',
+    '3': 'ERR',
+    '4': 'CRIT'
 }
 
 def write_log(level):
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    messages = {
-        'debug': "regular debug message",
-        'warning': "something sus could happen",
-        'error': "something went wrong",
-        'fatal': "something went so wrong the program has crashed"
+    severity_labels = {
+        'DEBUG': '[DEBUG]',
+        'WARNING': '[WARNING]',
+        'ERR': '[ERR]',
+        'CRIT': '[CRIT]'
     }
-    log_entry = f"[{level}] [{timestamp}] {messages[level]}"
+    timestamp = datetime.datetime.now().strftime("%b %d %H:%M:%S")
+    hostname = os.uname().nodename if hasattr(os, "uname") else "localhost"
+    app_name = "log_simulator"
+    messages = {
+        'DEBUG': "regular debug message",
+        'WARNING': "something sus could happen",
+        'ERR': "something went wrong",
+        'CRIT': "something went so wrong the program has crashed"
+    }
+    # Format: "timestamp hostname appname: [SEVERITY] message"
+    log_entry = f"{timestamp} {hostname} {app_name}: {severity_labels[level]} {messages[level]}"
     with open(LOG_FILE, "a") as f:
         f.write(log_entry + "\n")
     print(log_entry)
 
 def main():
     print("Log simulator running. Press:")
-    print("1 = debug, 2 = warning, 3 = error, 4 = fatal, q = quit")
+    print("1 = debug, 2 = warning, 3 = error, 4 = crit, q = quit")
 
     while True:
         event = keyboard.read_event()

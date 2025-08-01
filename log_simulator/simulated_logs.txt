@@ -1,0 +1,14 @@
+Jul 26 19:19:00 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:19:01 localhost log_simulator: [WARNING] something sus could happen
+Jul 26 19:19:01 localhost log_simulator: [ERR] something went wrong
+Jul 26 19:19:01 localhost log_simulator: [CRIT] something went so wrong the program has crashed
+Jul 26 19:28:29 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:30:57 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:30:57 localhost log_simulator: [WARNING] something sus could happen
+Jul 26 19:30:57 localhost log_simulator: [ERR] something went wrong
+Jul 26 19:30:58 localhost log_simulator: [CRIT] something went so wrong the program has crashed
+Jul 26 19:31:55 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:32:46 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:32:50 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:32:50 localhost log_simulator: [DEBUG] regular debug message
+Jul 26 19:32:51 localhost log_simulator: [CRIT] something went so wrong the program has crashed
