@@ -1,0 +1,19 @@
+name: PR Submitted Workflow
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log PR Info
+        run: |
+          echo "A pull request was submitted."
+          echo "${{ github.event.pull_request.title }}"
+          echo "${{ github.event.pull_request.user.login }}"
+          echo "${{ github.event.pull_request.html_url }}"
